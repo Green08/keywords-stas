@@ -38,7 +38,7 @@ single = re.compile(r"\n\n")
 
 b = re.sub(single, '\n', b)
 
-print(b)
+#print(b)
 
 def keywords_num (code):
     count = {}
@@ -65,7 +65,7 @@ def switch_num(code):
     return switch_num,case_num
     
 
-def if_elseif_else_count(text):
+def if_elseif_else_num(text):
     pattern_out = r'[\w](else if|if|else)[\w]'
     pattern_key = r'(else if|if|else)'
  
@@ -109,3 +109,6 @@ def if_elseif_else_count(text):
                 if_elseif_else_num += 1
     return if_else_num, if_elseif_else_num
  
+keywords_num (b)
+switch_num(b)
+if_elseif_else_num(b)
