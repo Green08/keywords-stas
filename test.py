@@ -62,7 +62,7 @@ def switch_num(code):
         case_num.append(len(case_list))
     for j in range(switch_num-1):
         case_num[j] = case_num[j]-case_num[j+1]
-    return switch_num,case_num
+    return switch_num, case_num
     
 
 def if_elseif_else_num(text):
@@ -109,6 +109,9 @@ def if_elseif_else_num(text):
                 if_elseif_else_num += 1
     return if_else_num, if_elseif_else_num
  
-keywords_num (b)
-switch_num(b)
-if_elseif_else_num(b)
+#switch_num(b)
+#if_elseif_else_num(b)
+print('The total num is: ',keywords_num (b))
+print ('The swith num is: ',switch_num)
+print('The case num is')
+print('The if_elseif_else num is',if_elseif_else_num)
