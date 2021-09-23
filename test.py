@@ -64,7 +64,7 @@ def switch_num(code):
     for j in range(switch_num-1):
         case_num[j] = case_num[j]-case_num[j+1]
     print ('The swith num is: ',switch_num)
-    print('The case num is',case_num)
+    print('The case num is',case_num[1])
     #return switch_num, case_num
     
 
