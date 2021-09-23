@@ -2,7 +2,7 @@
 import os
 import sys
 import re
-
+from sys import argv
 
 files = os.listdir('.')
 for filename in files:
@@ -123,6 +123,46 @@ keywords_num (b)
 switch_num(b)
 if_elseif_else_num(b)
 
+def count_if_else(code):
+    if_stack = []
+    # if-else num
+    if_else_num1 = 0
+    # if-elseif-else num
+    if_else_num2 = 0
+    match_else_if = False
+    #find all if、elseif、else
+    all_list = re.findall(r"else if|\s*else[{\s][^i]|if", code)
+    for i in range(len(all_list)):
+        if all_list[i] == "if":
+            if_stack.append(1)
+        elif all_list[i] == "else if":
+            if_stack.append(2)
+        else:
+            while True:
+                if if_stack.pop() == 2:
+                    match_else_if = True
+                else:
+                    break
+            if match_else_if:
+                if_else_num2 += 1
+                match_else_if = False
+            else:
+                if_else_num1 += 1
+    
+    return if_else_num1,if_else_num2
 
 
-gggggggggggg
+
+def output(level):
+    if level >= 3:
+        if_else_num1,if_else_num2 = count_if_else(code, level)
+        print("if-else num: ", if_else_num1)
+    else:
+        if_else_num1, if_else_num2 = count_if_else(code, level)
+        print("if-elseif-else num: ", if_else_num2)
+
+if __name__ == '__main__':
+    # read args
+    path, level = argv[1], int(argv[2])
+    code = b
+    output(level)
