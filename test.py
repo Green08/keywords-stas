@@ -40,6 +40,16 @@ b = re.sub(single, '\n', b)
 
 #print(b)
 
+def read_file(path):
+    code = ''
+    with open (path,'r',encoding='UTF-8') as file:
+        codeList = file.readlines()
+    for l in codeList:
+        code += l.strip()+' '
+    # remove code's string and annotation
+    code = re.sub("\"([^\"]*)\"|\/\*([^\*^\/]*|[\*^\/*]*|[^\**\/]*)*\*\/|\/\/.*", "", code)
+    return code
+
 def keywords_num (code):
     count = {}
     Key_sum = 0
@@ -164,5 +174,5 @@ def output(level):
 if __name__ == '__main__':
     # read args
     path, level = argv[1], int(argv[2])
-    code = b
+    code = read_file(path)
     output(level)
