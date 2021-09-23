@@ -49,6 +49,7 @@ def keywords_num (code):
         if n != 0:
             count[key] = n
             Key_sum += n
+    print('The total num is: ',keywords_num (b))
     return Key_sum
 
 def switch_num(code):
@@ -62,6 +63,8 @@ def switch_num(code):
         case_num.append(len(case_list))
     for j in range(switch_num-1):
         case_num[j] = case_num[j]-case_num[j+1]
+    print ('The swith num is: ',switch_num)
+    print('The case num is',case_num)
     return switch_num, case_num
     
 
@@ -107,6 +110,7 @@ def if_elseif_else_num(text):
                         break
                 stack.pop()
                 if_elseif_else_num += 1
+    print('The if_elseif_else num is',if_elseif_else_num)
     return if_else_num, if_elseif_else_num
  
 #switch_num(b)
